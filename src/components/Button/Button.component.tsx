@@ -1,8 +1,9 @@
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import * as S from './Button.styles';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: ReactNode;
+  backgroundType?: 'primary' | 'secondary';
 };
 
 export function Button({ children, ...rest }: ButtonProps): JSX.Element {

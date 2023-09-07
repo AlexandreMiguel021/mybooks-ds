@@ -1,17 +1,34 @@
-import styled from 'styled-components';
+import styled, { RuleSet, css } from 'styled-components';
+import { ButtonProps } from './Button.component';
 
-export const Button = styled.button`
+const buttonModifiers: Record<
+  ButtonProps['backgroundType'] & {},
+  () => RuleSet
+> = {
+  primary: () => css`
+    border: 2px solid #eb9b00;
+    color: white;
+    background-color: #e89b00;
+  `,
+
+  secondary: () => css`
+    border: 2px solid #eb9b00;
+    color: #e89b00;
+    background-color: white;
+  `,
+};
+
+export const Button = styled.button<ButtonProps>`
   padding: 16px 32px;
-  border: 2px solid #eb9b00;
-  color: white;
   font-size: 18px;
   font-weight: bold;
   border-radius: 4px;
-  background-color: #e89b00;
   cursor: pointer;
+  
+  ${({ backgroundType = 'primary' }) => buttonModifiers[backgroundType]}
 
   &:hover {
-    background-color: #bb7900;
+    opacity: .8;
   }
 
   &:focus {
