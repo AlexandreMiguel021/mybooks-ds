@@ -30,7 +30,7 @@ export const Button = styled.button<ButtonProps>`
   ${({ backgroundType = 'primary' }) => buttonModifiers[backgroundType]()}
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.9;
   }
 
   &:focus {
