@@ -1,5 +1,10 @@
-import React from "react";
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
+import * as S from './Button.styles';
 
-export function Button(): JSX.Element {
-  return <button>Click aqui</button>;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  children?: ReactNode;
+};
+
+export function Button({ children, ...rest }: ButtonProps): JSX.Element {
+  return <S.Button {...rest}>{children}</S.Button>;
 }
